@@ -1,1 +1,7 @@
-import "./src/styles/global.css"
+import React from "react";
+import { ParallaxProvider } from "react-scroll-parallax";
+import "./src/styles/global.css";
+
+export const wrapRootElement = ({ element }) => {
+  return <ParallaxProvider>{element}</ParallaxProvider>;
+};
