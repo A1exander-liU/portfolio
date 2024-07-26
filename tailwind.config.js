@@ -5,7 +5,18 @@ module.exports = {
     `./src/components/**/*.{js,jsx,ts,tsx}`,
   ],
   theme: {
-    extend: {},
+    extend: {
+      animation: {
+        fade: "fadeIn 0.75s ease-in-out",
+      },
+      keyframes: {
+        fadeIn: {
+          from: { opacity: 0 },
+          to: { opacity: 1 },
+        },
+      },
+    },
   },
   plugins: [],
-}
+  darkMode: "selector",
+};
