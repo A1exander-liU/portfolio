@@ -6,7 +6,7 @@ import SkillsSection from "./skillsSection";
 
 export default function AboutSection() {
   return (
-    <div id="about" className="pt-20">
+    <section id="about" className="pt-20">
       <motion.p
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -24,6 +24,6 @@ export default function AboutSection() {
 
       <SkillsSection />
 
-    </div>
+    </section>
   )
 }
