@@ -2,7 +2,7 @@ import * as React from "react";
 import { graphql, Link, type HeadFC, type PageProps } from "gatsby";
 import Layout from "../components/layout";
 import { motion } from "framer-motion";
-import { getImage, StaticImage } from "gatsby-plugin-image";
+import { getImage } from "gatsby-plugin-image";
 import AboutSection from "../components/about/aboutSection";
 import ProjectCard from "../components/projectCard";
 
@@ -31,8 +31,8 @@ const IndexPage: React.FC<PageProps<DataProps>> = ({ data }) => {
   return (
     <Layout>
       { /* Add some kind of image here to differentiate rest of page */}
-      <section className="px-10 flex flex-col items-center">
-        <h2 className="mb-10 text-4xl text-center">Hi, I'm Alexander a Full-Stack Developer</h2>
+      <section className="px-10 h-screen w-full bg-gradient-to-r from-cyan-500 to-blue-500 flex flex-col items-center">
+        <h2 className="my-10 text-4xl text-center">Hi, I'm Alexander a Full-Stack Developer</h2>
         <Link to="/#about">
           <motion.button className="px-2 py-1 border-2 border-solid border-blue-400">See More</motion.button>
         </Link>
@@ -41,19 +41,19 @@ const IndexPage: React.FC<PageProps<DataProps>> = ({ data }) => {
       <AboutSection />
 
       <h1 id="projects" className="font-bold text-3xl mb-5 pt-20">Projects</h1>
-      <div className="px-2 grid grid-cols-1 gap-40">
+      <section className="px-2 grid grid-cols-1 gap-40">
         {data.allMdx.nodes.map((node, i) => (
           <ProjectCard key={i} node={node} />
         ))}
-      </div>
+      </section>
 
 
       <h1 id="contact" className="pt-20">Contact</h1>
-      <div>
+      <section>
         <p>Email: alexanderliu2016@gmail.com</p>
         <p>Github: https://github.com/A1exander-liU</p>
         <p>Linkedin:</p>
-      </div>
+      </section>
 
       <div className="grid grid-cols-1">
         {/* <a href="https://iconscout.com/icons/react" className="underline text-sm" target="_blank">React</a> by <a href="https://iconscout.com/contributors/icon-mafia" className="underline text-sm">Icon Mafia</a> on <a href="https://iconscout.com" className="underline text-sm">IconScout</a> */}
