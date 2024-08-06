@@ -1,10 +1,12 @@
 import React from "react"
 import { motion } from "framer-motion"
 import { graphql, useStaticQuery } from "gatsby"
+import 'devicon/devicon.min.css';
 
 
 type SkillItemProps = { name: string, icon?: string }
 function SkillItem({ name, icon }: SkillItemProps) {
+  console.log(icon)
   return (
     <motion.div
       initial={{ opacity: 0, }}
@@ -12,9 +14,12 @@ function SkillItem({ name, icon }: SkillItemProps) {
       transition={{ opacity: { duration: 0.75, delay: Math.random() } }}
       viewport={{ once: true }}
       whileHover={{ scale: 1.05 }}
-      className="flex flex-col pt-1 justify-center items-center border-2 border-solid border-blue-500 rounded-sm text-xs"
+      className="flex flex-col pt-1 max-w-28 justify-center items-center space-y-1 text-xs"
     >
-      <img src={`/assets/icons/${icon}`} alt="icon" className="w-3/4" />
+
+      <div className="p-1 rounded-md dark:bg-white">
+        <img src={icon} alt={name} className="w-full h-full" />
+      </div>
       <p>{name}</p>
     </motion.div>
   )
@@ -39,11 +44,12 @@ export default function SkillsSection() {
 
   return (
     <>
-      {/* Make resposive so elements dont change size */}
-      <div className="px-10 grid grid-cols-4 place-items-stretch gap-3">
-        {skillsData.allSkillsJson.nodes.map((skill, i) => (
-          <SkillItem key={i} name={skill.name} icon={skill.icon} />
-        ))}
+      <div className="flex justify-center">
+        <div className="grid grid-cols-4 gap-3">
+          {skillsData.allSkillsJson.nodes.map((skill, i) => (
+            <SkillItem key={i} name={skill.name} icon={skill.icon} />
+          ))}
+        </div>
       </div>
     </>
   )
