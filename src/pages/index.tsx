@@ -1,13 +1,18 @@
 import * as React from "react";
 import { graphql, Link, type HeadFC, type PageProps } from "gatsby";
 import Layout from "../components/layout";
-import { Parallax } from "react-scroll-parallax";
-import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image";
+import { motion } from "framer-motion";
+import { getImage, StaticImage } from "gatsby-plugin-image";
+import AboutSection from "../components/about/aboutSection";
+import ProjectCard from "../components/projectCard";
 
-type Node = {
+
+export type Node = {
   frontmatter: {
     slug: string
     title: string;
+    live: string;
+    source: string;
     hero_image: Parameters<typeof getImage>[0];
     hero_image_alt: string;
   };
@@ -22,33 +27,41 @@ type DataProps = {
 };
 
 const IndexPage: React.FC<PageProps<DataProps>> = ({ data }) => {
+
   return (
     <Layout>
-      <Parallax opacity={[1, 0]} startScroll={0} endScroll={400}>
-        <p id="about" className="mb-20">
-          Random TextRandom Random Random Random Random Random Random Random
-          Random Random RandomRandom Random Random Random Random Random Random
-          Random Random Random Random Random Random Random Random Random Random
-          Random Random Random Random Random Random Random Random Random Random
-          Random Random Random Random Random Random Random Random Random Random
-          Random Random Random Random
-        </p>
-      </Parallax>
+      { /* Add some kind of image here to differentiate rest of page */}
+      <section className="px-10 flex flex-col items-center">
+        <h2 className="mb-10 text-4xl text-center">Hi, I'm Alexander a Full-Stack Developer</h2>
+        <Link to="/#about">
+          <motion.button className="px-2 py-1 border-2 border-solid border-blue-400">See More</motion.button>
+        </Link>
+      </section>
 
-      <h1 id="projects" className="font-medium text-xl mb-5">Projects</h1>
+      <AboutSection />
 
-      <div className="px-10 grid grid-cols-1 gap-40">
-        {data.allMdx.nodes.map((node) => (
-          <Link to={`/project/${node.frontmatter.slug}`}>
-            <div key={node.id} className="px-2 py-1 min-h-64 flex flex-col justify-between rounded-sm ring-2 ring-opacity-10 ring-black dark:ring-gray-700 hover:bg-slate-300 dark:hover:bg-slate-700">
-              <h1 className="font-medium text-lg">{node.frontmatter.title}</h1>
-
-              <div className="mb-5 flex justify-center items-center"><StaticImage src="../images/icon.png" alt="icon" objectFit="contain" className="max-h-24" /></div>
-
-              <p>{node.excerpt}</p>
-            </div>
-          </Link>
+      <h1 id="projects" className="font-bold text-3xl mb-5 pt-20">Projects</h1>
+      <div className="px-2 grid grid-cols-1 gap-40">
+        {data.allMdx.nodes.map((node, i) => (
+          <ProjectCard key={i} node={node} />
         ))}
+      </div>
+
+
+      <h1 id="contact" className="pt-20">Contact</h1>
+      <div>
+        <p>Email: alexanderliu2016@gmail.com</p>
+        <p>Github: https://github.com/A1exander-liU</p>
+        <p>Linkedin:</p>
+      </div>
+
+      <div className="grid grid-cols-1">
+        {/* <a href="https://iconscout.com/icons/react" className="underline text-sm" target="_blank">React</a> by <a href="https://iconscout.com/contributors/icon-mafia" className="underline text-sm">Icon Mafia</a> on <a href="https://iconscout.com" className="underline text-sm">IconScout</a> */}
+        {/* <a href="https://iconscout.com/icons/javascript" className="text-underline font-size-sm" target="_blank">Javascript</a> by <a href="https://iconscout.com/contributors/icon-mafia" className="text-underline font-size-sm">Icon Mafia</a> on <a href="https://iconscout.com" className="text-underline font-size-sm">IconScout</a> */}
+        {/* <a href="https://iconscout.com/icons/java" class="text-underline font-size-sm" target="_blank">Java</a> by <a href="https://iconscout.com/contributors/icon-mafia" class="text-underline font-size-sm">Icon Mafia</a> on <a href="https://iconscout.com" class="text-underline font-size-sm">IconScout</a> */}
+        {/* <a href="https://iconscout.com/icons/angular" class="text-underline font-size-sm" target="_blank">Angular</a> by <a href="https://iconscout.com/contributors/icon-mafia" class="text-underline font-size-sm">Icon Mafia</a> on <a href="https://iconscout.com" class="text-underline font-size-sm">IconScout</a> */}
+        {/* <a href="https://iconscout.com/icons/express" class="text-underline font-size-sm" target="_blank">Express</a> by <a href="https://iconscout.com/contributors/icon-mafia" class="text-underline font-size-sm">Icon Mafia</a> on <a href="https://iconscout.com" class="text-underline font-size-sm">IconScout</a> */}
+        {/* <a href="https://iconscout.com/icons/django" class="text-underline font-size-sm" target="_blank">Django</a> by <a href="https://iconscout.com/contributors/icon-mafia" class="text-underline font-size-sm" target="_blank">Icon Mafia</a> */}
       </div>
     </Layout>
   );
@@ -63,6 +76,8 @@ export const query = graphql`
         frontmatter {
           slug
           title
+          live
+          source
           hero_image {
             childImageSharp {
               gatsbyImageData
@@ -77,4 +92,4 @@ export const query = graphql`
   }
 `;
 
-export const Head: HeadFC = () => <title>Home Page</title>;
+export const Head: HeadFC = () => <title>Alexander Liu | Developer</title>;
