@@ -14,9 +14,12 @@ const config: GatsbyConfig = {
     "gatsby-plugin-postcss",
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
+    "gatsby-plugin-react-svg",
     "gatsby-plugin-mdx",
+    `gatsby-transformer-json`,
     "gatsby-transformer-sharp",
     { resolve: "gatsby-source-filesystem", options: { name: "projects", path: `${__dirname}/projects` } },
+    { resolve: "gatsby-source-filesystem", options: { name: "skills", path: `${__dirname}/data/skills.json` } },
   ],
 };
 
