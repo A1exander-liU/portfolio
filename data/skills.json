@@ -1,46 +1,46 @@
 [
   {
     "name": "Typescript",
-    "icon": "typescript.svg"
+    "icon": "icons/typescript.svg"
   },
   {
     "name": "Javascript",
-    "icon": "javascript.svg"
+    "icon": "icons/javascript.svg"
   },
   {
     "name": "Python",
-    "icon": "python.svg"
+    "icon": "icons/python.svg"
   },
   {
     "name": "Java",
-    "icon": "java.svg"
+    "icon": "icons/java.svg"
   },
   {
     "name": "Go",
-    "icon": "go.svg"
+    "icon": "icons/go.svg"
   },
   {
     "name": "Angular",
-    "icon": "angular.svg"
+    "icon": "icons/angularjs.svg"
   },
   {
     "name": "React",
-    "icon": "react.svg"
+    "icon": "icons/react.svg"
   },
   {
     "name": "TailwindCSS",
-    "icon": "tailwind.svg"
+    "icon": "icons/tailwindcss.svg"
   },
   {
     "name": "NestJS",
-    "icon": "nestjs.svg"
+    "icon": "icons/nestjs.svg"
   },
   {
     "name": "ExpressJS",
-    "icon": "express.svg"
+    "icon": "icons/express.svg"
   },
   {
     "name": "Django",
-    "icon": "django.svg"
+    "icon": "icons/django.svg"
   }
 ]
