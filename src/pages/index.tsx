@@ -1,10 +1,11 @@
 import * as React from "react"; import { graphql, Link, type HeadFC, type PageProps } from "gatsby";
 import Layout from "../components/layout";
 import { motion } from "framer-motion";
-import { getImage } from "gatsby-plugin-image";
+import { StaticImage, getImage } from "gatsby-plugin-image";
 import AboutSection from "../components/about/aboutSection";
 import ProjectCard from "../components/projectCard";
 import "devicon/devicon.min.css"
+import HeadData from "../components/headData";
 
 
 export type Node = {
@@ -28,9 +29,14 @@ type DataProps = {
 };
 
 const IndexPage: React.FC<PageProps<DataProps>> = ({ data }) => {
-
   return (
     <Layout>
+      {
+        /*
+         * Add tileing backdrop instead of gradient
+         * Add backdrop/transparent container overlaying hero image
+         */
+      }
       { /* Add some kind of image here to differentiate rest of page */}
       <section className="px-10 min-h-96 w-full bg-gradient-to-r from-cyan-500 to-blue-500 flex flex-col items-center">
         <h2 className="my-10 text-4xl text-center">Hi, I'm Alexander a Full-Stack Developer</h2>
@@ -88,4 +94,4 @@ export const query = graphql`
   }
 `;
 
-export const Head: HeadFC = () => <title>Home | Alexander Liu</title>;
+export const Head: HeadFC = () => <HeadData page="Home" />
