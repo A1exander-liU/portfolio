@@ -41,7 +41,7 @@ const IndexPage: React.FC<PageProps<DataProps>> = ({ data }) => {
 
       <AboutSection />
 
-      <h1 id="projects" className="font-bold text-5xl mb-5 pt-20">Projects</h1>
+      <h1 id="projects" className="font-bold text-4xl mb-5 pt-20">Projects</h1>
       <section className="px-2 w-full flex flex-col space-y-40">
         {data.allMdx.nodes.map((node, i) => (
           <ProjectCard key={i} node={node} pos={i % 2 == 0 ? "left" : "right"} />
