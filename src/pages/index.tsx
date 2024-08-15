@@ -1,10 +1,10 @@
-import * as React from "react";
-import { graphql, Link, type HeadFC, type PageProps } from "gatsby";
+import * as React from "react"; import { graphql, Link, type HeadFC, type PageProps } from "gatsby";
 import Layout from "../components/layout";
 import { motion } from "framer-motion";
 import { getImage } from "gatsby-plugin-image";
 import AboutSection from "../components/about/aboutSection";
 import ProjectCard from "../components/projectCard";
+import "devicon/devicon.min.css"
 
 
 export type Node = {
@@ -15,6 +15,7 @@ export type Node = {
     source: string;
     hero_image: Parameters<typeof getImage>[0];
     hero_image_alt: string;
+    info: string
   };
   excerpt: string;
   id: string;
@@ -31,7 +32,7 @@ const IndexPage: React.FC<PageProps<DataProps>> = ({ data }) => {
   return (
     <Layout>
       { /* Add some kind of image here to differentiate rest of page */}
-      <section className="px-10 h-screen w-full bg-gradient-to-r from-cyan-500 to-blue-500 flex flex-col items-center">
+      <section className="px-10 min-h-96 w-full bg-gradient-to-r from-cyan-500 to-blue-500 flex flex-col items-center">
         <h2 className="my-10 text-4xl text-center">Hi, I'm Alexander a Full-Stack Developer</h2>
         <Link to="/#about">
           <motion.button className="px-2 py-1 border-2 border-solid border-blue-400">See More</motion.button>
@@ -40,30 +41,24 @@ const IndexPage: React.FC<PageProps<DataProps>> = ({ data }) => {
 
       <AboutSection />
 
-      <h1 id="projects" className="font-bold text-3xl mb-5 pt-20">Projects</h1>
-      <section className="px-2 grid grid-cols-1 gap-40">
+      <h1 id="projects" className="font-bold text-5xl mb-5 pt-20">Projects</h1>
+      <section className="px-2 w-full flex flex-col space-y-40">
         {data.allMdx.nodes.map((node, i) => (
-          <ProjectCard key={i} node={node} />
+          <ProjectCard key={i} node={node} pos={i % 2 == 0 ? "left" : "right"} />
         ))}
       </section>
 
 
-      <h1 id="contact" className="pt-20">Contact</h1>
-      <section>
-        <p>Email: alexanderliu2016@gmail.com</p>
-        <p>Github: https://github.com/A1exander-liU</p>
-        <p>Linkedin:</p>
+      <section id="contact" className="py-1 mt-20 h-24 flex justify-center items-center bg-slate-900 w-full space-x-6">
+        <a href="https://github.com/A1exander-liU">
+          <i className="devicon-github-original text-white text-4xl"></i>
+        </a>
+        <a href="https://linkedin.com/in/alexanderliu00">
+          <i className="devicon-linkedin-plain colored text-4xl"></i>
+        </a>
       </section>
 
-      <div className="grid grid-cols-1">
-        {/* <a href="https://iconscout.com/icons/react" className="underline text-sm" target="_blank">React</a> by <a href="https://iconscout.com/contributors/icon-mafia" className="underline text-sm">Icon Mafia</a> on <a href="https://iconscout.com" className="underline text-sm">IconScout</a> */}
-        {/* <a href="https://iconscout.com/icons/javascript" className="text-underline font-size-sm" target="_blank">Javascript</a> by <a href="https://iconscout.com/contributors/icon-mafia" className="text-underline font-size-sm">Icon Mafia</a> on <a href="https://iconscout.com" className="text-underline font-size-sm">IconScout</a> */}
-        {/* <a href="https://iconscout.com/icons/java" class="text-underline font-size-sm" target="_blank">Java</a> by <a href="https://iconscout.com/contributors/icon-mafia" class="text-underline font-size-sm">Icon Mafia</a> on <a href="https://iconscout.com" class="text-underline font-size-sm">IconScout</a> */}
-        {/* <a href="https://iconscout.com/icons/angular" class="text-underline font-size-sm" target="_blank">Angular</a> by <a href="https://iconscout.com/contributors/icon-mafia" class="text-underline font-size-sm">Icon Mafia</a> on <a href="https://iconscout.com" class="text-underline font-size-sm">IconScout</a> */}
-        {/* <a href="https://iconscout.com/icons/express" class="text-underline font-size-sm" target="_blank">Express</a> by <a href="https://iconscout.com/contributors/icon-mafia" class="text-underline font-size-sm">Icon Mafia</a> on <a href="https://iconscout.com" class="text-underline font-size-sm">IconScout</a> */}
-        {/* <a href="https://iconscout.com/icons/django" class="text-underline font-size-sm" target="_blank">Django</a> by <a href="https://iconscout.com/contributors/icon-mafia" class="text-underline font-size-sm" target="_blank">Icon Mafia</a> */}
-      </div>
-    </Layout>
+    </Layout >
   );
 };
 
@@ -84,6 +79,7 @@ export const query = graphql`
             }
           }
           hero_image_alt
+          info
         }
         id
         excerpt
@@ -92,4 +88,4 @@ export const query = graphql`
   }
 `;
 
-export const Head: HeadFC = () => <title>Alexander Liu | Developer</title>;
+export const Head: HeadFC = () => <title>Home | Alexander Liu</title>;
