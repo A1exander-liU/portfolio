@@ -20,21 +20,24 @@ export default function ProjectCard({ node, pos }: { node: Node, pos: "left" | "
       <p className="my-4">{node.frontmatter.info}</p>
 
       <div className="flex justify-end space-x-4">
-        <motion.a
-          href={node.frontmatter.live}
-          whileHover={{ backgroundColor: "#3b82f6" }}
-          whileTap={{ backgroundColor: "#3b82f6" }}
-          transition={{ backgroundColor: { duration: 0.2 } }}
-          className="p-2 w-1/4 max-w-32 border-2 border-solid border-blue-500 text-black dark:text-white">
-          <p className="flex justify-center space-x-2"><span>Live</span> <GlobeAltIcon className="w-6" /></p>
-        </motion.a>
+        {node.frontmatter.live &&
+          <motion.a
+            href={node.frontmatter.live}
+            whileHover={{ backgroundColor: "#3b82f6" }}
+            whileTap={{ backgroundColor: "#3b82f6" }}
+            transition={{ backgroundColor: { duration: 0.2 } }}
+            className="p-2 w-1/4 max-w-32 border-2 border-solid border-blue-500 text-black dark:text-white">
+            <p className="flex justify-center space-x-2"><span>Live</span> { /*<GlobeAltIcon className="w-6" />*/}</p>
+          </motion.a>
+
+        }
         <motion.a
           href={node.frontmatter.source}
           whileHover={{ backgroundColor: "#3b82f6" }}
           whileTap={{ backgroundColor: "#3b82f6" }}
           transition={{ backgroundColor: { duration: 0.2 } }}
           className="p-2 w-1/4 max-w-32 border-2 border-solid border-blue-500 text-black dark:text-white">
-          <p className="flex justify-center space-x-2"><span>Source</span> <CodeBracketIcon className="w-6" /></p>
+          <p className="flex justify-center space-x-2"><span>Source</span> {/*<CodeBracketIcon className="w-6" />*/}</p>
         </motion.a>
       </div>
     </motion.div >
