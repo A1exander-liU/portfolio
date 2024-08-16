@@ -1,12 +1,12 @@
 import * as React from "react"; import { graphql, Link, type HeadFC, type PageProps } from "gatsby";
 import Layout from "../components/layout";
 import { motion } from "framer-motion";
-import { StaticImage, getImage } from "gatsby-plugin-image";
+import { getImage } from "gatsby-plugin-image";
 import AboutSection from "../components/about/aboutSection";
-import ProjectCard from "../components/projectCard";
 import "devicon/devicon.min.css"
 import HeadData from "../components/headData";
 import ContactSection from "../components/contactSection";
+import ProjectSection from "../components/project/projectSection";
 
 
 export type Node = {
@@ -47,14 +47,7 @@ const IndexPage: React.FC<PageProps<DataProps>> = ({ data }) => {
       </section>
 
       <AboutSection />
-
-      <h1 id="projects" className="font-bold text-4xl mb-5 pt-20">Projects</h1>
-      <section className="px-10 w-full flex flex-col space-y-20">
-        {data.allMdx.nodes.map((node, i) => (
-          <ProjectCard key={i} node={node} pos={i % 2 == 0 ? "left" : "right"} />
-        ))}
-      </section>
-
+      <ProjectSection nodes={data.allMdx.nodes} />
       <ContactSection />
 
     </Layout >
