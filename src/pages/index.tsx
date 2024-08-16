@@ -6,6 +6,7 @@ import AboutSection from "../components/about/aboutSection";
 import ProjectCard from "../components/projectCard";
 import "devicon/devicon.min.css"
 import HeadData from "../components/headData";
+import ContactSection from "../components/contactSection";
 
 
 export type Node = {
@@ -48,21 +49,13 @@ const IndexPage: React.FC<PageProps<DataProps>> = ({ data }) => {
       <AboutSection />
 
       <h1 id="projects" className="font-bold text-4xl mb-5 pt-20">Projects</h1>
-      <section className="px-2 w-full flex flex-col space-y-40">
+      <section className="px-10 w-full flex flex-col space-y-20">
         {data.allMdx.nodes.map((node, i) => (
           <ProjectCard key={i} node={node} pos={i % 2 == 0 ? "left" : "right"} />
         ))}
       </section>
 
-
-      <section id="contact" className="py-1 mt-20 h-24 flex justify-center items-center bg-slate-900 w-full space-x-6">
-        <a href="https://github.com/A1exander-liU">
-          <i className="devicon-github-original text-white text-4xl"></i>
-        </a>
-        <a href="https://linkedin.com/in/alexanderliu00">
-          <i className="devicon-linkedin-plain colored text-4xl"></i>
-        </a>
-      </section>
+      <ContactSection />
 
     </Layout >
   );
