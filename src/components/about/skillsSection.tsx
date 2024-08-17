@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import { graphql, useStaticQuery } from "gatsby"
+import { SkillNode, Skills } from "../../scripts/types"
 
 
 type SkillItemProps = { name: string, icon?: string }
@@ -24,15 +25,7 @@ function SkillItem({ name, icon }: SkillItemProps) {
     </motion.div>
   )
 }
-type SkillNode = {
-  name: string;
-  icon: string;
-}
-type Skills = {
-  allSkillsJson: {
-    nodes: SkillNode[]
-  }
-}
+
 export default function SkillsSection() {
   const [skillGroups, setSkillGroups] = useState<SkillNode[][]>([])
   const skillsData: Skills = useStaticQuery(graphql`

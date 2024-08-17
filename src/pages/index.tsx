@@ -1,27 +1,14 @@
-import * as React from "react"; import { graphql, Link, type HeadFC, type PageProps } from "gatsby";
+import * as React from "react";
+import { graphql, Link, type HeadFC, type PageProps } from "gatsby";
 import Layout from "../components/layout";
 import { motion } from "framer-motion";
-import { getImage } from "gatsby-plugin-image";
 import AboutSection from "../components/about/aboutSection";
 import "devicon/devicon.min.css"
 import HeadData from "../components/headData";
 import ContactSection from "../components/contactSection";
 import ProjectSection from "../components/project/projectSection";
+import { Node } from "../scripts/types";
 
-
-export type Node = {
-  frontmatter: {
-    slug: string
-    title: string;
-    live: string;
-    source: string;
-    hero_image: Parameters<typeof getImage>[0];
-    hero_image_alt: string;
-    info: string
-  };
-  excerpt: string;
-  id: string;
-};
 
 type DataProps = {
   allMdx: {
@@ -45,7 +32,6 @@ const IndexPage: React.FC<PageProps<DataProps>> = ({ data }) => {
           <motion.button className="px-2 py-1 border-2 border-solid border-blue-400">See More</motion.button>
         </Link>
       </section>
-
       <AboutSection />
       <ProjectSection nodes={data.allMdx.nodes} />
       <ContactSection />

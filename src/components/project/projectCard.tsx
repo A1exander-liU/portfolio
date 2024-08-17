@@ -1,6 +1,6 @@
 import React from "react"
 import { motion } from "framer-motion"
-import { Node } from "../pages"
+import { Node } from "../../scripts/types"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 
