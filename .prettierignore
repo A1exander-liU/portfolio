@@ -1,0 +1,7 @@
+# Ignore artifacts:
+.cache
+.next
+build
+coverage
+
+public
