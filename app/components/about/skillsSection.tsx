@@ -10,9 +10,9 @@ function SkillItem({ name, icon }: SkillItemProps) {
     <motion.div
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      transition={{ opacity: { duration: 0.75, delay: Math.random() } }}
+      transition={{ opacity: { duration: 0.5, delay: Math.random() * 0.6 } }}
       viewport={{ once: true }}
-      className="flex flex-col pt-1 w-16 md:w-20 justify-center items-center space-y-1 text-sm"
+      className="flex flex-col pt-1 w-14 md:w-16 justify-center items-center space-y-1 text-sm"
     >
       <motion.div whileHover={{ scale: 0.95 }} className="p-1 rounded-md dark:bg-white">
         {icon && <Image src={icon} width={50} height={50} alt="name" className="size-full" />}
@@ -37,7 +37,7 @@ export default function SkillsSection() {
     <>
       <div className="flex flex-col space-y-2">
         {skillGroups.map((skillGroup, i) => (
-          <div key={i} className={`flex justify-center space-x-2`}>
+          <div key={i} className={`flex justify-center space-x-4`}>
             {skillGroup.map((skill, j) => (
               <SkillItem key={j} name={skill.name} icon={skill.icon} />
             ))}

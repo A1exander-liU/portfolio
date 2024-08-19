@@ -10,7 +10,7 @@ export default function AboutSection() {
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.75 }}
         viewport={{ once: true }}
-        className="mb-20 lg:w-1/2"
+        className="mb-10 lg:w-1/2"
       >
         Random Random Random Random Random Random Random Random Random Random Random Random Random Random Random Random
         Random Random Random Random Random Random Random Random Random Random Random Random Random Random Random Random
