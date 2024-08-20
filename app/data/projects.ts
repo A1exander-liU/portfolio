@@ -7,6 +7,12 @@ const pokestore: ProjectNode = {
   hero_image: "/project_images/github-profile-searcher.png",
   hero_image_alt: "gatsby icon",
   info: "Fake e-commerce store for purchasing pokemon related items.",
+  tech: [
+    { icon: "angular", name: "Angular" },
+    { icon: "nestjs", name: "NestJS" },
+    { icon: "tailwindcss", name: "TailwindCSS" },
+    { icon: "vite", name: "Vite" },
+  ],
 };
 
 const interviewApp: ProjectNode = {
@@ -16,6 +22,7 @@ const interviewApp: ProjectNode = {
   hero_image: "/project_images/github-profile-searcher.png",
   hero_image_alt: "gatsby icon",
   info: "Interview practice app with AI interviewer utilizing text-to-speech, speech-to-text and ChatGPT",
+  tech: [{ icon: "react", name: "React" }],
 };
 
 const githubProfileSearcher: ProjectNode = {
@@ -25,6 +32,7 @@ const githubProfileSearcher: ProjectNode = {
   hero_image: "/project_images/github-profile-searcher.png",
   hero_image_alt: "Alt",
   info: "App to search and view Github user info and a history of their repositories",
+  tech: [{ icon: "materialui", name: "MaterialUI" }],
 };
 
 export const projects: ProjectNode[] = [githubProfileSearcher, interviewApp, pokestore];

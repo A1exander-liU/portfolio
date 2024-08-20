@@ -1,3 +1,8 @@
+export type TechItem = {
+  icon: string;
+  name: string;
+};
+
 export type ProjectNode = {
   title: string;
   live: string;
@@ -5,6 +10,7 @@ export type ProjectNode = {
   hero_image: string | null;
   hero_image_alt: string;
   info: string;
+  tech: TechItem[];
 };
 
 export type SkillNode = {
