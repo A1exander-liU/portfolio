@@ -3,9 +3,14 @@ import React, { useState } from "react";
 import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/react";
 import { toTitleCase } from "../scripts/stringUtils";
 import { THEME_KEY, Theme, changeTheme, themes } from "../scripts/theme";
-import { SunIcon } from "@heroicons/react/24/solid";
+import { SunIcon, MoonIcon, ComputerDesktopIcon } from "@heroicons/react/24/solid";
 
 export default function ThemeToggle() {
+  const themeMap = {
+    light: <SunIcon className="size-6" />,
+    dark: <MoonIcon className="size-6" />,
+    system: <ComputerDesktopIcon className="size-6" />,
+  };
   const [currentTheme, setCurrentTheme] = useState<Theme>((localStorage.getItem(THEME_KEY) as Theme) || "system");
 
   const handleThemeChange = (theme: Theme) => {
@@ -17,7 +22,7 @@ export default function ThemeToggle() {
     <>
       <Menu>
         <MenuButton className="px-2 py-1 rounded-full data-[hover]:bg-slate-200 dark:data-[hover]:bg-slate-700">
-          <SunIcon className="size-6" />
+          {themeMap[currentTheme]}
         </MenuButton>
         <MenuItems
           anchor="bottom end"
