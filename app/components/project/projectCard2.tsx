@@ -25,6 +25,7 @@ function ShowMore({ hidden }: { hidden: React.JSX.Element[] }) {
       <MenuItems
         anchor={{ to: "bottom end" }}
         transition
+        modal={false}
         className="z-20 p-1 mt-1 max-w-64 flex flex-wrap gap-1 rounded-md bg-slate-50 dark:bg-slate-900 dark:text-white ring-2 ring-opacity-10 ring-black dark:ring-gray-700 origin-top transition duration-200 ease-out data-[closed]:scale-95 data-[closed]:opacity-0"
       >
         {hidden.map((node, i) => (
