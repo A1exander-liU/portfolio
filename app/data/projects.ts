@@ -22,7 +22,11 @@ const interviewApp: ProjectNode = {
   hero_image: "/project_images/github-profile-searcher.png",
   hero_image_alt: "gatsby icon",
   info: "Interview practice app with AI interviewer utilizing text-to-speech, speech-to-text and ChatGPT",
-  tech: [{ icon: "react", name: "React" }],
+  tech: [
+    { icon: "react", name: "React" },
+    { icon: "django", name: "Django" },
+    { icon: "firebase", name: "Firebase" },
+  ],
 };
 
 const githubProfileSearcher: ProjectNode = {
@@ -32,7 +36,11 @@ const githubProfileSearcher: ProjectNode = {
   hero_image: "/project_images/github-profile-searcher.png",
   hero_image_alt: "Alt",
   info: "App to search and view Github user info and a history of their repositories",
-  tech: [{ icon: "materialui", name: "MaterialUI" }],
+  tech: [
+    { icon: "react", name: "React" },
+    { icon: "materialui", name: "MaterialUI" },
+    { icon: "vite", name: "Vite" },
+  ],
 };
 
 export const projects: ProjectNode[] = [githubProfileSearcher, interviewApp, pokestore];
