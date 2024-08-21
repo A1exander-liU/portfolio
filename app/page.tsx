@@ -18,14 +18,14 @@ export default function Home() {
         <span className="mt-40" />
         <Title name={info.name} />
         <motion.button
-          initial={{ opacity: 0, y: "20vh" }}
+          initial={{ opacity: 0, y: "40vh" }}
           whileHover={{ backgroundColor: "#3b82f6" }}
           whileTap={{ backgroundColor: "#3b82f6" }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{
             opacity: { duration: 0, delay: 3.25 },
             backgroundColor: { duration: 0.2 },
-            y: { duration: 0.75, delay: 3.25 },
+            y: { duration: 0.75, delay: 3 },
           }}
           viewport={{ once: true }}
           className="px-2 py-1 border-2 border-solid border-blue-500 text-white"

@@ -21,7 +21,7 @@ export default function ThemeToggle() {
   return (
     <>
       <Menu>
-        <MenuButton className="px-2 py-1 rounded-full data-[hover]:bg-slate-200 dark:data-[hover]:bg-slate-600">
+        <MenuButton className="p-2 rounded-full data-[hover]:bg-slate-200 dark:data-[hover]:bg-slate-600">
           {themeMap[currentTheme]}
         </MenuButton>
         <MenuItems
