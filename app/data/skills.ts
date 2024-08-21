@@ -3,46 +3,46 @@ import { SkillNode } from "../scripts/types";
 export const skills: SkillNode[] = [
   {
     name: "Typescript",
-    icon: "/icons/typescript.svg",
+    icon: "typescript-plain",
   },
   {
     name: "Javascript",
-    icon: "/icons/javascript.svg",
+    icon: "javascript-plain",
   },
   {
     name: "Python",
-    icon: "/icons/python.svg",
+    icon: "python-plain",
   },
   {
     name: "Java",
-    icon: "/icons/java.svg",
+    icon: "java-plain",
   },
   {
     name: "Go",
-    icon: "/icons/go.svg",
+    icon: "go-plain-wordmark",
   },
   {
     name: "Angular",
-    icon: "/icons/angularjs.svg",
+    icon: "angular-plain",
   },
   {
     name: "React",
-    icon: "/icons/react.svg",
+    icon: "react-plain",
   },
   {
     name: "TailwindCSS",
-    icon: "/icons/tailwindcss.svg",
+    icon: "tailwindcss-plain",
   },
   {
     name: "NestJS",
-    icon: "/icons/nestjs.svg",
+    icon: "nestjs-plain",
   },
   {
     name: "ExpressJS",
-    icon: "/icons/express.svg",
+    icon: "express-original",
   },
   {
     name: "Django",
-    icon: "/icons/django.svg",
+    icon: "django-plain",
   },
 ];

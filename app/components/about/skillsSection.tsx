@@ -2,21 +2,21 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { SkillNode } from "../../scripts/types";
 import { skills } from "@/app/data/skills";
-import Image from "next/image";
 
-type SkillItemProps = { name: string; icon?: string };
+type SkillItemProps = { name: string; icon: string };
 function SkillItem({ name, icon }: SkillItemProps) {
   return (
     <motion.div
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      transition={{ opacity: { duration: 1.25, delay: Math.random() * 0.6 + 1.75 } }}
+      transition={{ opacity: { duration: 1.25, delay: Math.random() * 0.6 + 1 } }}
       viewport={{ once: true }}
-      className="flex flex-col pt-1 w-14 md:w-16 justify-center items-center space-y-1 text-sm"
+      className="flex flex-col pt-1 w-16 md:w-20 justify-center items-center space-y-1 text-sm"
     >
-      <motion.div whileHover={{ scale: 0.95 }} className="p-1 rounded-md dark:bg-white">
-        {icon && <Image src={icon} width={50} height={50} alt="name" className="size-full" />}
-      </motion.div>
+      <motion.i
+        whileHover={{ scale: 0.9 }}
+        className={`devicon-${icon} text-5xl text-blue-700 dark:text-blue-300`}
+      ></motion.i>
       <p>{name}</p>
     </motion.div>
   );
@@ -35,9 +35,9 @@ export default function SkillsSection() {
 
   return (
     <>
-      <div className="flex flex-col space-y-2">
+      <div className="flex flex-col gap-4">
         {skillGroups.map((skillGroup, i) => (
-          <div key={i} className={`flex justify-center space-x-4`}>
+          <div key={i} className={`flex justify-center gap-4`}>
             {skillGroup.map((skill, j) => (
               <SkillItem key={j} name={skill.name} icon={skill.icon} />
             ))}
