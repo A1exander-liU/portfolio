@@ -10,7 +10,7 @@ function SkillItem({ name, icon }: SkillItemProps) {
     <motion.div
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      transition={{ opacity: { duration: 0.5, delay: Math.random() * 0.6 } }}
+      transition={{ opacity: { duration: 1.25, delay: Math.random() * 0.6 + 1.75 } }}
       viewport={{ once: true }}
       className="flex flex-col pt-1 w-14 md:w-16 justify-center items-center space-y-1 text-sm"
     >

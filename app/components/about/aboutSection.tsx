@@ -8,7 +8,7 @@ export default function AboutSection() {
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.75 }}
+        transition={{ duration: 1.5, delay: 0.25 }}
         viewport={{ once: true }}
         className="mb-10 lg:w-1/2"
       >

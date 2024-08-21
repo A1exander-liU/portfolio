@@ -15,6 +15,7 @@ export default function Home() {
   return (
     <>
       <section className="px-10 h-screen w-full flex flex-col items-center bg-black">
+        <span className="mt-40" />
         <Title name={info.name} />
         <motion.button
           initial={{ opacity: 0, y: "20vh" }}
@@ -26,7 +27,8 @@ export default function Home() {
             backgroundColor: { duration: 0.2 },
             y: { duration: 0.75, delay: 3.25 },
           }}
-          className="px-2 py-1 border-2 border-solid border-blue-500"
+          viewport={{ once: true }}
+          className="px-2 py-1 border-2 border-solid border-blue-500 text-white"
         >
           <Link href="/#about">See More</Link>
         </motion.button>

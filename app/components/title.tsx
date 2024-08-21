@@ -5,7 +5,7 @@ export default function Title({ name }: { name: string }) {
   return (
     <>
       <h2 className="my-10 text-4xl text-center">
-        {`Hi, I'm `}
+        <span className="text-white">{`Hi, I'm `}</span>
         <span className="text-blue-500">
           {name.split("").map((char, i) => (
             <motion.span
