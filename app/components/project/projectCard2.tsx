@@ -42,7 +42,7 @@ function ShowMore({ hidden }: { hidden: React.JSX.Element[] }) {
  * Uses container and tech icon widths to determine how many can fit,
  * rest of elements are rendered inside a "show more"
  */
-function TechBar({ tech, pos }: { tech: TechItem[]; pos: string }) {
+function TechBar({ tech, pos, className }: { tech: TechItem[]; pos: string; className?: string }) {
   const allChildren = tech.map((el, i) => <TechIcon key={i} icon={el.icon} name={el.name} />);
   const techBarRef = useRef<HTMLDivElement | null>(null);
   const widthsRef = useRef<number[]>([]);
@@ -93,7 +93,7 @@ function TechBar({ tech, pos }: { tech: TechItem[]; pos: string }) {
   return (
     <div
       ref={techBarRef}
-      className={`flex overflow-hidden justify-end items-center space-x-1 ${pos === "right" ? "md:col-start-1 md:row-start-1 md:justify-start" : ""}`}
+      className={`flex overflow-hidden justify-end items-center space-x-1 ${pos === "right" ? "md:col-start-1 md:row-start-1 md:justify-start" : ""} ${className ? className : ""}`}
     >
       {displayedChildren}
       {hiddenChildren.length > 0 && <ShowMore hidden={hiddenChildren} />}
@@ -107,13 +107,15 @@ export default function ProjectCard2({ node, pos }: { node: ProjectNode; pos: "l
       className={`p-2 min-h-64 w-full grid grid-cols-1 md:grid-cols-2 gap-2 border-x-2 border-t-2 border-solid border-slate-200 dark:border-slate-700 dark:border-2 lg:max-w-[65%] text-sm md:text-base dark:bg-slate-900 ${pos === "left" ? "self-start" : "self-end"} shadow-lg`}
     >
       <div
-        className={`relative p-1 grid md:block grid-rows-subgrid row-start-1 col-start-1 ${pos === "left" ? "md:col-start-1" : "md:col-start-2"} row-span-2`}
+        className={`relative p-1 grid md:block grid-rows-subgrid row-start-1 col-start-1 ${pos === "left" ? "md:col-start-1" : "md:col-start-2"} row-span-3`}
       >
         <div className="p-1 md:p-0 flex flex-col-reverse bg-gradient-to-t from-black/75 via-black/0 md:bg-none">
           <h2 className="text-lg text-white font-semibold md:text-xl md:text-black md:dark:text-white">{node.title}</h2>
         </div>
-        <p className="row-start-2 col-start-1 text-slate-500 dark:text-slate-400 lg:text-lg">{node.info}</p>
+        <TechBar tech={node.tech} pos={pos} className="md:hidden max-md:justify-start" />
+        <p className="text-slate-500 dark:text-slate-400 lg:text-lg">{node.info}</p>
       </div>
+
       {node.hero_image && (
         <Image
           src={node.hero_image}
@@ -126,7 +128,7 @@ export default function ProjectCard2({ node, pos }: { node: ProjectNode; pos: "l
       )}
 
       <div className={`h-fit grid grid-cols-2 gap-2 md:col-span-2`}>
-        <div className={`flex space-x-2 ${pos === "right" ? "md:col-start-2 md:justify-end" : ""}`}>
+        <div className={`flex gap-2 ${pos === "right" ? "md:col-start-2 md:justify-end" : ""} max-md:col-span-full`}>
           {node.live && (
             <motion.a
               href={node.live}
@@ -148,7 +150,7 @@ export default function ProjectCard2({ node, pos }: { node: ProjectNode; pos: "l
             <p className="flex justify-center space-x-2 font-semibold">Read More</p>
           </motion.a>
         </div>
-        <TechBar tech={node.tech} pos={pos} />
+        <TechBar tech={node.tech} pos={pos} className="max-md:hidden" />
       </div>
     </motion.div>
   );
