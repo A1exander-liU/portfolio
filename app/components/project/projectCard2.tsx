@@ -26,7 +26,7 @@ function ShowMore({ hidden }: { hidden: React.JSX.Element[] }) {
         anchor={{ to: "bottom end" }}
         transition
         modal={false}
-        className="z-20 p-1 mt-1 max-w-64 flex flex-wrap gap-1 rounded-md bg-slate-50 dark:bg-slate-900 dark:text-white ring-2 ring-opacity-10 ring-black dark:ring-gray-700 origin-top transition duration-200 ease-out data-[closed]:scale-95 data-[closed]:opacity-0"
+        className="z-20 p-1 mt-1 max-w-64 flex flex-wrap gap-1 bg-slate-50 dark:bg-slate-800 dark:text-white ring-2 ring-opacity-10 ring-black dark:ring-slate-700 origin-top transition duration-200 ease-out data-[closed]:scale-95 data-[closed]:opacity-0"
       >
         {hidden.map((node, i) => (
           <MenuItem key={i}>{node}</MenuItem>
@@ -104,7 +104,7 @@ function TechBar({ tech, pos }: { tech: TechItem[]; pos: string }) {
 export default function ProjectCard2({ node, pos }: { node: ProjectNode; pos: "left" | "right" }) {
   return (
     <motion.div
-      className={`p-2 min-h-64 w-full grid grid-cols-1 md:grid-cols-2 gap-2 border-x-2 border-t-2 border-solid border-slate-200 dark:border-slate-700 dark:border-2 lg:max-w-[65%] text-sm md:text-base dark:bg-slate-800 ${pos === "left" ? "self-start" : "self-end"} shadow-lg`}
+      className={`p-2 min-h-64 w-full grid grid-cols-1 md:grid-cols-2 gap-2 border-x-2 border-t-2 border-solid border-slate-200 dark:border-slate-700 dark:border-2 lg:max-w-[65%] text-sm md:text-base dark:bg-slate-900 ${pos === "left" ? "self-start" : "self-end"} shadow-lg`}
     >
       <div
         className={`relative p-1 grid md:block grid-rows-subgrid row-start-1 col-start-1 ${pos === "left" ? "md:col-start-1" : "md:col-start-2"} row-span-2`}

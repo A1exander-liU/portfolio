@@ -4,17 +4,14 @@ import Link from "next/link";
 
 export default function Navbar() {
   return (
-    <nav className="z-10 px-2 h-12 w-full top-0 sticky space-x-2 flex items-center sm:justify-center shadow-lg bg-slate-100 dark:bg-slate-900 dark:text-white">
-      <div
-        onClick={() => window.scrollTo({ behavior: "smooth", top: 0 })}
-        className="px-2 py-1 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-sm font-medium"
-      >
+    <nav className="z-10 px-2 h-12 w-full top-0 sticky space-x-2 flex items-center sm:justify-center shadow-lg bg-slate-100 dark:bg-slate-700 dark:text-white">
+      <Link href="#home" className="px-2 py-1 hover:text-blue-500 rounded-sm font-medium">
         Home
-      </div>
-      <Link href="/#about" className="px-2 py-1 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-sm font-medium">
+      </Link>
+      <Link href="#about" className="px-2 py-1 hover:text-blue-500 rounded-sm font-medium">
         About
       </Link>
-      <Link href="/#projects" className="px-2 py-1 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-sm font-medium">
+      <Link href="#projects" className="px-2 py-1 hover:text-blue-500 rounded-sm font-medium">
         Projects
       </Link>
 

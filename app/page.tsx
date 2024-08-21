@@ -14,7 +14,7 @@ import { info } from "./data/info";
 export default function Home() {
   return (
     <>
-      <section className="px-10 h-screen w-full flex flex-col items-center bg-black">
+      <section id="home" className="px-10 h-screen w-full flex flex-col items-center bg-black">
         <span className="mt-40" />
         <Title name={info.name} />
         <motion.button
