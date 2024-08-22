@@ -5,6 +5,7 @@ import Image from "next/image";
 import { EllipsisHorizontalIcon } from "@heroicons/react/24/solid";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 
+// use forwardRef as headlessui dropdown passes ref to children
 const TechIcon = forwardRef<HTMLDivElement, TechItem>(({ icon, name }: TechItem, ref) => (
   <div
     ref={ref}
@@ -41,26 +42,13 @@ function ShowMore({ hidden }: { hidden: React.JSX.Element[] }) {
  *
  * Uses container and tech icon widths to determine how many can fit,
  * rest of elements are rendered inside a "show more"
- *
- * hidden prop field: used for tailwind class names like "max-md:hidden"
  */
-function TechBar({
-  tech,
-  pos,
-  hidden,
-  className,
-}: {
-  tech: TechItem[];
-  pos: string;
-  hidden: string;
-  className?: string;
-}) {
+function TechBar({ tech }: { tech: TechItem[]; className?: string }) {
   const allChildren = tech.map((el, i) => <TechIcon key={i} icon={el.icon} name={el.name} />);
   const techBarRef = useRef<HTMLDivElement | null>(null);
   const widthsRef = useRef<number[]>([]);
   const [displayedChildren, setDisplayedChildren] = useState<React.JSX.Element[]>(allChildren);
   const [hiddenChildren, setHiddenChildren] = useState<React.JSX.Element[]>([]);
-  const [rendered, setRendered] = useState<boolean>(false);
   // Sizes (pixels)
   const spacing = 4; // space-x-1
   const showMoreIconSize = 24 + spacing;
@@ -77,7 +65,6 @@ function TechBar({
       }
 
       widthsRef.current = temp;
-      setRendered(true);
     };
 
     // display all that will not overflow, rest will be in "show more"
@@ -104,36 +91,25 @@ function TechBar({
   }, []);
 
   return (
-    <div
-      ref={techBarRef}
-      className={`flex overflow-hidden justify-end items-center space-x-1 ${pos === "right" ? "md:col-start-1 md:row-start-1 md:justify-start" : ""} ${className ? className : ""} ${hidden && rendered ? hidden : ""}`}
-    >
+    <div ref={techBarRef} className={`flex overflow-hidden justify-start items-center space-x-1`}>
       {displayedChildren}
       {hiddenChildren.length > 0 && <ShowMore hidden={hiddenChildren} />}
     </div>
   );
 }
 
-/*
- * tech bar appears in 2 differnt places as tech bar has to change grid locations if on md or non md screen size.
- * 2 positions: between image and info text for small screens and to left/right of the buttons on md+ screene
- * positions are not possible to change as the techbar needs to appear in the subgrid
- *
- * have to use in 2 different places and hide based on breakpoint
- * */
 export default function ProjectCard2({ node, pos }: { node: ProjectNode; pos: "left" | "right" }) {
   return (
     <motion.div
-      className={`p-2 min-h-64 w-full grid grid-cols-1 md:grid-cols-2 gap-2 border-x-2 border-t-2 border-solid border-slate-200 dark:border-slate-700 dark:border-2  text-sm md:text-base dark:bg-slate-900 ${pos === "left" ? "self-start" : "self-end"} shadow-lg`}
+      className={`p-2 min-h-64 w-full grid grid-cols-1 gap-1 border-x-2 border-t-2 border-solid border-slate-200 dark:border-slate-700 dark:border-2 text-sm md:text-base dark:bg-slate-900 ${pos === "left" ? "self-start" : "self-end"} shadow-lg`}
     >
-      <div
-        className={`relative p-1 grid md:block grid-rows-subgrid row-start-1 col-start-1 ${pos === "left" ? "md:col-start-1" : "md:col-start-2"} row-span-3`}
-      >
-        <div className="p-1 md:p-0 flex flex-col-reverse bg-gradient-to-t from-black/75 via-black/0 md:bg-none">
-          <h2 className="text-lg text-white font-semibold md:text-xl md:text-black md:dark:text-white">{node.title}</h2>
+      <div className={`relative grid grid-rows-subgrid row-start-1 col-start-1 row-span-4`}>
+        <div className="flex flex-col-reverse bg-gradient-to-t from-black/50 to-black/0 to-30%">
+          <h2 className="p-2 text-lg text-white font-semibold md:text-xl">{node.title}</h2>
         </div>
-        <TechBar tech={node.tech} pos={pos} hidden="md:hidden" className="max-md:justify-start" />
-        <p className="text-slate-500 dark:text-slate-400 lg:text-lg">{node.info}</p>
+        <hr className="mb-2 w-full border-2 border-blue-500" />
+        <TechBar tech={node.tech} />
+        <p className="p-1 text-slate-500 dark:text-slate-400 lg:text-lg">{node.info}</p>
       </div>
 
       {node.hero_image && (
@@ -143,12 +119,12 @@ export default function ProjectCard2({ node, pos }: { node: ProjectNode; pos: "l
           width={1680}
           height={700}
           priority={true}
-          className={`size-full row-start-1 col-start-1 ${pos === "left" ? "md:col-start-2" : "md:col-start-1"}`}
+          className={`size-full row-start-1 col-start-1`}
         />
       )}
 
-      <div className={`h-fit grid grid-cols-2 gap-2 md:col-span-2`}>
-        <div className={`flex gap-2 ${pos === "right" ? "md:col-start-2 md:justify-end" : ""} max-md:col-span-full`}>
+      <div className={`h-fit grid gap-2 col-span-full`}>
+        <div className={`flex gap-2 ${pos === "right" ? "md:justify-end" : ""}`}>
           {node.live && (
             <motion.a
               href={node.live}
@@ -170,7 +146,6 @@ export default function ProjectCard2({ node, pos }: { node: ProjectNode; pos: "l
             <p className="flex justify-center space-x-2 font-semibold">Read More</p>
           </motion.a>
         </div>
-        <TechBar tech={node.tech} pos={pos} hidden="max-md:hidden" className="" />
       </div>
     </motion.div>
   );
