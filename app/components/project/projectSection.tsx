@@ -11,7 +11,9 @@ export default function ProjectSection({ nodes }: { nodes: ProjectNode[] }) {
       </h1>
       <section className="px-2 sm:px-10 w-full flex flex-col space-y-20">
         {nodes.map((node, i) => (
-          <ProjectCard2 key={i} node={node} pos={i % 2 == 0 ? "left" : "right"} />
+          <div key={i} className={`${i % 2 == 0 ? "self-start" : "self-end"} lg:max-w-[65%]`}>
+            <ProjectCard2 node={node} pos={i % 2 == 0 ? "left" : "right"} />
+          </div>
         ))}
       </section>
     </>

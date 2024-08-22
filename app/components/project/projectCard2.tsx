@@ -124,7 +124,7 @@ function TechBar({
 export default function ProjectCard2({ node, pos }: { node: ProjectNode; pos: "left" | "right" }) {
   return (
     <motion.div
-      className={`p-2 min-h-64 w-full grid grid-cols-1 md:grid-cols-2 gap-2 border-x-2 border-t-2 border-solid border-slate-200 dark:border-slate-700 dark:border-2 lg:max-w-[65%] text-sm md:text-base dark:bg-slate-900 ${pos === "left" ? "self-start" : "self-end"} shadow-lg`}
+      className={`p-2 min-h-64 w-full grid grid-cols-1 md:grid-cols-2 gap-2 border-x-2 border-t-2 border-solid border-slate-200 dark:border-slate-700 dark:border-2  text-sm md:text-base dark:bg-slate-900 ${pos === "left" ? "self-start" : "self-end"} shadow-lg`}
     >
       <div
         className={`relative p-1 grid md:block grid-rows-subgrid row-start-1 col-start-1 ${pos === "left" ? "md:col-start-1" : "md:col-start-2"} row-span-3`}
