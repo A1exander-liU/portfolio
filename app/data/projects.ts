@@ -1,4 +1,5 @@
 import { ProjectNode } from "../scripts/types";
+import { skillsMap } from "./skills";
 
 const pokestore: ProjectNode = {
   title: "PokeStore",
@@ -7,12 +8,7 @@ const pokestore: ProjectNode = {
   hero_image: "/project_images/pokestore.png",
   hero_image_alt: "gatsby icon",
   info: "Fake e-commerce store for purchasing pokemon related items.",
-  tech: [
-    { icon: "angular", name: "Angular" },
-    { icon: "nestjs", name: "NestJS" },
-    { icon: "tailwindcss", name: "TailwindCSS" },
-    { icon: "vite", name: "Vite" },
-  ],
+  tech: [skillsMap.angular, skillsMap.nestjs, skillsMap.taildwindcss],
 };
 
 const interviewApp: ProjectNode = {
@@ -22,11 +18,7 @@ const interviewApp: ProjectNode = {
   hero_image: "/project_images/ai-interview-app.png",
   hero_image_alt: "gatsby icon",
   info: "Interview practice app with AI interviewer utilizing text-to-speech, speech-to-text and ChatGPT",
-  tech: [
-    { icon: "react", name: "React" },
-    { icon: "django", name: "Django" },
-    { icon: "firebase", name: "Firebase" },
-  ],
+  tech: [skillsMap.react, skillsMap.django, skillsMap.firebase],
 };
 
 const githubProfileSearcher: ProjectNode = {
@@ -36,11 +28,7 @@ const githubProfileSearcher: ProjectNode = {
   hero_image: "/project_images/github-profile-searcher.png",
   hero_image_alt: "Alt",
   info: "App to search and view Github user info and a history of their repositories",
-  tech: [
-    { icon: "react", name: "React" },
-    { icon: "materialui", name: "MaterialUI" },
-    { icon: "vite", name: "Vite" },
-  ],
+  tech: [skillsMap.react, skillsMap.materialui, skillsMap.vite],
 };
 
 export const projects: ProjectNode[] = [githubProfileSearcher, interviewApp, pokestore];

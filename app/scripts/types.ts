@@ -10,7 +10,7 @@ export type ProjectNode = {
   hero_image: string | null;
   hero_image_alt: string;
   info: string;
-  tech: TechItem[];
+  tech: SkillNode[];
 };
 
 export type SkillNode = {
