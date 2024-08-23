@@ -1,17 +1,17 @@
 import React, { forwardRef, useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { ProjectNode, TechItem } from "../../scripts/types";
+import { ProjectNode, SkillNode } from "../../scripts/types";
 import Image from "next/image";
 import { EllipsisHorizontalIcon } from "@heroicons/react/24/solid";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 
 // use forwardRef as headlessui dropdown passes ref to children
-const TechIcon = forwardRef<HTMLDivElement, TechItem>(({ icon, name }: TechItem, ref) => (
+const TechIcon = forwardRef<HTMLDivElement, SkillNode>(({ icon, name }: SkillNode, ref) => (
   <div
     ref={ref}
     className="px-2 py-[1px] h-6 flex justify-center items-center space-x-1 border-[1px] border-solid border-slate-300 bg-slate-200 rounded-full dark:border-slate-500 dark:bg-slate-600"
   >
-    <i className={`devicon-${icon}-plain text-lg`}></i>
+    <i className={`devicon-${icon} text-lg`}></i>
     <p className="text-xs">{name}</p>
   </div>
 ));
@@ -43,7 +43,7 @@ function ShowMore({ hidden }: { hidden: React.JSX.Element[] }) {
  * Uses container and tech icon widths to determine how many can fit,
  * rest of elements are rendered inside a "show more"
  */
-function TechBar({ tech }: { tech: TechItem[]; className?: string }) {
+function TechBar({ tech }: { tech: SkillNode[]; className?: string }) {
   const allChildren = tech.map((el, i) => <TechIcon key={i} icon={el.icon} name={el.name} />);
   const techBarRef = useRef<HTMLDivElement | null>(null);
   const widthsRef = useRef<number[]>([]);
@@ -101,7 +101,7 @@ function TechBar({ tech }: { tech: TechItem[]; className?: string }) {
 export default function ProjectCard2({ node, pos }: { node: ProjectNode; pos: "left" | "right" }) {
   return (
     <motion.div
-      className={`p-2 min-h-64 w-full grid grid-cols-1 gap-1 border-x-2 border-t-2 border-solid border-slate-200 dark:border-slate-700 dark:border-2 text-sm md:text-base dark:bg-slate-900 ${pos === "left" ? "self-start" : "self-end"} shadow-lg`}
+      className={`p-2 min-h-64 size-full grid grid-cols-1 gap-1 border-x-2 border-t-2 border-solid border-slate-200 dark:border-slate-700 dark:border-2 text-sm md:text-base dark:bg-slate-900 ${pos === "left" ? "self-start" : "self-end"} shadow-lg`}
     >
       <div className={`relative grid grid-rows-subgrid row-start-1 col-start-1 row-span-4`}>
         <div className="flex flex-col-reverse bg-gradient-to-t from-black/50 to-black/0 to-30%">
@@ -124,7 +124,7 @@ export default function ProjectCard2({ node, pos }: { node: ProjectNode; pos: "l
       )}
 
       <div className={`h-fit grid gap-2 col-span-full`}>
-        <div className={`flex gap-2 ${pos === "right" ? "md:justify-end" : ""}`}>
+        <div className={`flex gap-2 ${pos === "right" ? "lg:justify-end" : ""}`}>
           {node.live && (
             <motion.a
               href={node.live}

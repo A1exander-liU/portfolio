@@ -11,7 +11,7 @@ export default function AboutSection() {
         <hr className="mt-1 w-3/5 border-2 border-blue-500" />
       </h1>
       <section className="px-10 flex flex-col xl:flex-row items-center xl:justify-center lg:space-x-10 xl:items-start">
-        <motion.div className="mb-10 md:text-xl xl:w-1/2">{info.about}</motion.div>
+        <motion.div className="mb-10 w-[70%] md:text-lg lg:w-1/2">{info.about}</motion.div>
         <SkillsSection />
       </section>
     </>

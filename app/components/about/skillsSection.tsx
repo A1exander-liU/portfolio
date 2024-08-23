@@ -15,6 +15,7 @@ function SkillItem({ name, icon }: SkillItemProps) {
     >
       <motion.i
         whileHover={{ scale: 0.9 }}
+        whileTap={{ scale: 0.9 }}
         className={`devicon-${icon} text-5xl text-blue-700 dark:text-blue-300 md:text-6xl`}
       ></motion.i>
       <p className="md:text-lg">{name}</p>
