@@ -19,7 +19,7 @@ const projectList = [
     hero_image: "/project_images/ai-interview-app.png",
     hero_image_alt: "Chat interface",
     info: "Interview practice app with AI interviewer utilizing text-to-speech, speech-to-text and ChatGPT",
-    tech: [skillsMap.react, skillsMap.django, skillsMap.firebase],
+    tech: [skillsMap.react, skillsMap.django, skillsMap.firebase, skillsMap.chatgpt],
   },
 
   {
@@ -30,6 +30,35 @@ const projectList = [
     hero_image_alt: "Page showing all the products",
     info: "Fake e-commerce store for purchasing pokemon related items.",
     tech: [skillsMap.angular, skillsMap.nestjs, skillsMap.taildwindcss],
+  },
+
+  {
+    title: "Narrative Nexus",
+    live: "",
+    source: "https://github.com/Ic388warlord/ISA_Narrative_Nexus",
+    hero_image: "",
+    hero_image_alt: "Gray background placeholder",
+    info: "Choose your own adventure app using generative ai",
+    tech: [
+      skillsMap.nestjs,
+      skillsMap.flask,
+      skillsMap.supabase,
+      skillsMap.redis,
+      skillsMap.hugginface,
+      skillsMap.chatgpt,
+      skillsMap.html,
+      skillsMap.css,
+    ],
+  },
+
+  {
+    title: "Storefront",
+    live: "",
+    source: "https://github.com/Ic388warlord/storefront",
+    hero_image: "",
+    hero_image_alt: "Gray background placeholder",
+    info: "E-commerce for clothing",
+    tech: [skillsMap.nextjs, skillsMap.javascript, skillsMap.aws],
   },
 ];
 

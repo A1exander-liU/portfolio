@@ -1,3 +1,4 @@
+import { isContext } from "vm";
 import { SkillNode } from "../scripts/types";
 export const skillsMap = {
   typescript: {
@@ -19,6 +20,14 @@ export const skillsMap = {
   go: {
     name: "Go",
     icon: "go-plain-wordmark",
+  },
+  html: {
+    name: "HTML",
+    icon: "html5-plain",
+  },
+  css: {
+    name: "CSS",
+    icon: "css3-plain",
   },
   angular: {
     name: "Angular",
@@ -44,6 +53,14 @@ export const skillsMap = {
     name: "Django",
     icon: "django-plain",
   },
+  flask: {
+    name: "Flask",
+    icon: "flask-original",
+  },
+  nextjs: {
+    name: "NextJS",
+    icon: "nextjs-plain",
+  },
   firebase: {
     name: "Firebase",
     icon: "firebase-plain",
@@ -55,6 +72,26 @@ export const skillsMap = {
   vite: {
     name: "Vite",
     icon: "vite-plain",
+  },
+  redis: {
+    name: "Redis",
+    icon: "redis-plain",
+  },
+  supabase: {
+    name: "Supabase",
+    icon: "supabase-plain",
+  },
+  hugginface: {
+    name: "HugginFace",
+    icon: "",
+  },
+  chatgpt: {
+    name: "ChatGPT",
+    icon: "",
+  },
+  aws: {
+    name: "AWS",
+    icon: "amazonwebservices-plain-wordmark",
   },
 };
 
