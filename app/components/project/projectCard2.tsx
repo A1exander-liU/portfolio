@@ -1,10 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ProjectNode } from "../../scripts/types";
 import Image from "next/image";
 import TechBar from "./TechBar";
+import { useTheme } from "next-themes";
 
 export default function ProjectCard2({ node, pos }: { node: ProjectNode; pos: "left" | "right" }) {
+  const [mounted, setMounted] = useState<boolean>(false);
+  const [placeholder, setPlaceholder] = useState<string>("");
+  const { resolvedTheme } = useTheme();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (node.hero_image) return;
+    console.log(resolvedTheme);
+    setPlaceholder(`/project_images/placeholder_${resolvedTheme}.png`);
+  }, [resolvedTheme]);
+
+  if (!mounted) {
+    return null;
+  }
+
   return (
     <motion.div
       className={`p-2 min-h-64 size-full grid grid-cols-1 gap-1 border-x-2 border-t-2 border-solid border-slate-200 dark:border-slate-700 dark:border-2 text-sm md:text-base dark:bg-slate-900 ${pos === "left" ? "self-start" : "self-end"} shadow-lg`}
@@ -18,16 +37,14 @@ export default function ProjectCard2({ node, pos }: { node: ProjectNode; pos: "l
         <p className="p-1 text-slate-500 dark:text-slate-400 lg:text-lg">{node.info}</p>
       </div>
 
-      {node.hero_image && (
-        <Image
-          src={node.hero_image}
-          alt={node.hero_image_alt}
-          width={1680}
-          height={700}
-          priority={true}
-          className={`size-full row-start-1 col-start-1`}
-        />
-      )}
+      <Image
+        src={node.hero_image || placeholder}
+        alt={node.hero_image_alt}
+        width={1680}
+        height={700}
+        priority={true}
+        className={`size-full row-start-1 col-start-1`}
+      />
 
       <div className={`h-fit grid gap-2 col-span-full`}>
         <div className={`flex gap-2 ${pos === "right" ? "lg:justify-end" : ""}`}>
