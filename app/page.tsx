@@ -36,7 +36,6 @@ export default function Home() {
       </section>
       <AboutSection />
       <ProjectSection nodes={projects} />
-      <ContactSection />
     </>
   );
 }
