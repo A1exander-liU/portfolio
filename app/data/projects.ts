@@ -60,6 +60,16 @@ const projectList = [
     info: "E-commerce for clothing",
     tech: [skillsMap.nextjs, skillsMap.javascript, skillsMap.aws],
   },
+
+  {
+    title: "yt-playlists",
+    live: "",
+    source: "https://github.com/A1exander-liU/yt-playlists",
+    hero_image: "/project_images/yt-playlists.png",
+    hero_image_alt: "Selecting a playlist to add videos to",
+    info: "Simple TUI app for managing your Youtube playlists",
+    tech: [skillsMap.go],
+  },
 ];
 
 const pokestore: ProjectNode = {
